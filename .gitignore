@@ -4,3 +4,5 @@
 !Merge
 !*.cpp
 !*.h
+!makefile
+!gitignore
