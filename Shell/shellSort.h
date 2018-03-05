@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
-class mergeSort
+class shellSort
 {
   
 public:
