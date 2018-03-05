@@ -47,6 +47,7 @@ int main(int argc, char* argv[]) {
 	ofstream output_file(argv[2]);
 	ostream_iterator<long> output_iterator(output_file, "\n");
 	copy(arraySorter->temp1.begin(), arraySorter->temp1.end(), output_iterator);
+	cout<<"Thank you";
 
 
 }
