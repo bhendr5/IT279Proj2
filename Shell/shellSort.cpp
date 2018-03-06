@@ -68,7 +68,7 @@ void writeFile(char* argv[], long arr[], int n) {
 	//open a file in write mode
 	cout<<"writing"<<endl;
 	ofstream outfile;
-	outfile.open(argv[1]);
+	outfile.open(argv[2]);
 	
 	//write array to file
 	for (int i = 0; i < n; i++) {
@@ -88,7 +88,7 @@ void convert(vector<long> vect, long arr[], int size) {
 	}
 }
 
-int main(int argc, char*inName[], char*outName[])
+int main(int argc, char*inName[])
 {
 	//store data into vector
 	vector<long> vect;
