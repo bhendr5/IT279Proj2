@@ -4,7 +4,7 @@ shellSort: shellSort.o
 		
 shellSort.o: shellSort.cpp
 		
-		g++ -c shellSort.cpp
+		g++ -std=c++11 -c shellSort.cpp
 
 clean: 
 	

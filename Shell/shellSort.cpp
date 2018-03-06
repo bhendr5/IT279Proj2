@@ -44,12 +44,12 @@ int shellSort(long arr[], int n)
 }
  
 /*reads input data to a vector so we do not need to know the size in advance*/
-void readfile(char* argv[], vector<long> vect){
+void readfile(char* argv[], vector<long> &vect, int &size){
 	//open a file in read mode.
 	cout<<"reading"<<endl;
 	ifstream infile;
-	infile.open(argv[1]);
-	
+	infile.open("d10.rand.txt");
+
 	//store data into vector
 	string line;
 	while (getline(infile,line)) {
@@ -58,7 +58,9 @@ void readfile(char* argv[], vector<long> vect){
 		iss >> n;
 		vect.push_back(n);
 	}
-	
+
+	size = vect.size();
+
 	//close and return
 	infile.close();
 }
@@ -68,15 +70,14 @@ void writeFile(char* argv[], long arr[], int n) {
 	//open a file in write mode
 	cout<<"writing"<<endl;
 	ofstream outfile;
-	outfile.open(argv[2]);
+	outfile.open("output.txt");
 	
 	//write array to file
 	for (int i = 0; i < n; i++) {
-		outfile << arr[i] << " ";
+		outfile << arr[i] << endl;
 	}
 
 	//finish and close
-	outfile<<endl;
 	outfile.close();
 }
 
@@ -92,10 +93,10 @@ int main(int argc, char*filename[])
 {
 	//store data into vector
 	vector<long> vect;
-	readfile(filename, vect);
+	int size = 0;
+	readfile(filename, vect, size);
 	
 	//convert vector to array
-	int size = vect.size();
 	long arr[size];
 	convert(vect, arr, size);
  
