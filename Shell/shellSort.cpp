@@ -6,8 +6,7 @@
  */
 
 // C++ implementation of Shell Sort
-#include "shellSort.h"
-#include  <iostream>
+#include <iostream>
 #include <fstream>
 #include <sstream>
 #include <cmath>
@@ -47,7 +46,7 @@ int shellSort(long arr[], int n)
 /*reads input data to a vector so we do not need to know the size in advance*/
 void readfile(char* argv[], vector<long> vect){
 	//open a file in read mode.
-	cout<<"reading list"<<endl;
+	cout<<"reading"<<endl;
 	ifstream infile;
 	infile.open(argv[1]);
 	
@@ -65,11 +64,11 @@ void readfile(char* argv[], vector<long> vect){
 }
 
 /* writes sorted list to  ShellSortedList.txt*/
-void writeFile(long arr[], int n) {
+void writeFile(char* argv[], long arr[], int n) {
 	//open a file in write mode
-	cout<<"writing to: ShellSortedList.txt"<<endl;
+	cout<<"writing"<<endl;
 	ofstream outfile;
-	outfile.open("ShellSortedList.txt");
+	outfile.open(argv[1]);
 	
 	//write array to file
 	for (int i = 0; i < n; i++) {
@@ -82,29 +81,29 @@ void writeFile(long arr[], int n) {
 }
 
 /*converts the vector to an array so that it is easier to sort with random access*/
-void convert(vector<long> vect, long arr[]) {
-	for (int i = vect.size() - 1; i >= 0; i++) {
+void convert(vector<long> vect, long arr[], int size) {
+	for (int i = size - 1; i >= 0; i--) {
 		arr[i] = vect.back();
 		vect.pop_back();
 	}
 }
 
-int main(int argc, char*argv[])
+int main(int argc, char*inName[], char*outName[])
 {
 	//store data into vector
-	vector<long> vect;	
-	readfile(argv, vect);
+	vector<long> vect;
+	readfile(inName, vect);
 	
 	//convert vector to array
 	int size = vect.size();
 	long arr[size];
-	convert(vect, arr);
+	convert(vect, arr, size);
  
 	//sort array
     shellSort(arr, size);
  
     //writes sorted list to output file
-	writeFile(arr, size);
+	writeFile(outName, arr, size);
     return 0;
 }
 
