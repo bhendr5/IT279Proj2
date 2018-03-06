@@ -25,8 +25,8 @@ void parseFile(LongLinkedList *list, char* argv[]){
 	inputFile.close();
 }
 
-void outputFile(LongLinkedList *list){
-	ofstream outputFile("InsertionSortedList.txt");
+void outputFile(LongLinkedList *list,  char* argv[]){
+	ofstream outputFile(argv[2]);
 	long out = NULL;
 	LongNode *current = list->head->next;
 
@@ -41,7 +41,7 @@ void outputFile(LongLinkedList *list){
 
 
 //sorts linkedlist using insertion sort
-void sortList(LongLinkedList *list){
+void sortList(LongLinkedList *list, char* argv[]){
 
 	//selects first node after null head
 	LongNode *inputNode = list->head->next;
@@ -68,7 +68,7 @@ void sortList(LongLinkedList *list){
 		inputNode = inputNode->next;
 	}
 
-	outputFile(sortedList);
+	outputFile(sortedList, argv);
 }
 
 
@@ -77,7 +77,7 @@ int main(int argc, char* argv[]){
 	LongLinkedList *list= new LongLinkedList();
 	parseFile(list,argv);
 
-	sortList(list);
+	sortList(list,argv);
 
 	return 0;
 }
