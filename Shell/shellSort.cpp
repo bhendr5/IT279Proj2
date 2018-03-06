@@ -88,11 +88,11 @@ void convert(vector<long> vect, long arr[], int size) {
 	}
 }
 
-int main(int argc, char*inName[])
+int main(int argc, char*filename[])
 {
 	//store data into vector
 	vector<long> vect;
-	readfile(inName, vect);
+	readfile(filename, vect);
 	
 	//convert vector to array
 	int size = vect.size();
@@ -103,7 +103,7 @@ int main(int argc, char*inName[])
     shellSort(arr, size);
  
     //writes sorted list to output file
-	writeFile(outName, arr, size);
+	writeFile(filename, arr, size);
     return 0;
 }
 
